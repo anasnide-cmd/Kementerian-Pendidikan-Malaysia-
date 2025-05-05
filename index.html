@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pendaftaran STPM 2025 - KPM</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 120px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #1d3557;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #1d3557;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .success {
+      margin-top: 20px;
+      color: green;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Logo_Kementerian_Pendidikan_Malaysia.svg/512px-Logo_Kementerian_Pendidikan_Malaysia.svg.png" alt="Logo KPM">
+    </div>
+    <h2>Pendaftaran STPM 2025</h2>
+    <form id="stpmForm">
+      <label for="nama">Nama Penuh:</label>
+      <input type="text" id="nama" name="nama" required />
+
+      <label for="ic">No. Kad Pengenalan:</label>
+      <input type="text" id="ic" name="ic" required />
+
+      <label for="jantina">Jantina:</label>
+      <select id="jantina" name="jantina" required>
+        <option value="">-- Pilih Jantina --</option>
+        <option value="Lelaki">Lelaki</option>
+        <option value="Perempuan">Perempuan</option>
+      </select>
+
+      <label for="alamat">Alamat:</label>
+      <input type="text" id="alamat" name="alamat" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="sekolah">Nama Sekolah:</label>
+      <input type="text" id="sekolah" name="sekolah" required />
+
+      <label for="negeri">Negeri:</label>
+      <select id="negeri" name="negeri" required>
+        <option value="">-- Pilih Negeri --</option>
+        <option value="Johor">Johor</option>
+        <option value="Kedah">Kedah</option>
+        <option value="Kelantan">Kelantan</option>
+        <option value="Melaka">Melaka</option>
+        <option value="Negeri Sembilan">Negeri Sembilan</option>
+        <option value="Pahang">Pahang</option>
+        <option value="Perak">Perak</option>
+        <option value="Perlis">Perlis</option>
+        <option value="Pulau Pinang">Pulau Pinang</option>
+        <option value="Sabah">Sabah</option>
+        <option value="Sarawak">Sarawak</option>
+        <option value="Selangor">Selangor</option>
+        <option value="Terengganu">Terengganu</option>
+        <option value="Kuala Lumpur">Kuala Lumpur</option>
+        <option value="Labuan">Labuan</option>
+        <option value="Putrajaya">Putrajaya</option>
+      </select>
+
+      <button type="submit">Hantar Pendaftaran</button>
+    </form>
+    <div class="success" id="successMessage" style="display: none;">
+      Pendaftaran anda telah berjaya dihantar!
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("stpmForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      document.getElementById("successMessage").style.display = "block";
+      this.reset();
+    });
+  </script>
+</body>
+  </html>
