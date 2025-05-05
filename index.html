@@ -8,89 +8,112 @@
     :root {
       --kpm-blue: #006699;
       --kpm-red: #CC0000;
-      --kpm-grey: #666666;
+      --kpm-grey: #444444;
+      --kpm-yellow: #ffcc00;
     }
 
     body {
       font-family: "Arial", sans-serif;
       margin: 0;
-      background: #f5f5f5;
+      background: #f8f9fa;
     }
 
     .logo {
       text-align: center;
-      padding: 30px 0 10px;
+      padding: 1.5rem 0;
       background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     .logo img {
-      max-width: 100%;
-      width: 280px;
+      width: 320px;
       height: auto;
+      transition: width 0.3s ease;
     }
 
     .kpm-title {
       text-align: center;
-      padding-bottom: 10px;
-      border-bottom: 3px solid var(--kpm-blue);
-      background: white;
+      padding: 1rem 0;
+      background: linear-gradient(to right, var(--kpm-blue), #004466);
+      color: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     .kpm-title h2 {
-      margin: 10px 0 5px;
-      color: var(--kpm-blue);
+      margin: 0;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
     }
 
     .kpm-title p {
-      margin: 0;
-      color: var(--kpm-grey);
+      margin: 0.5rem 0 0;
+      font-size: 0.95rem;
+      opacity: 0.9;
     }
 
     .kpm-nav {
       background: var(--kpm-blue);
-      padding: 10px 30px;
+      padding: 0.8rem 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     .kpm-nav a {
       color: white;
       text-decoration: none;
-      margin-right: 25px;
-      font-size: 0.9em;
+      margin-right: 2rem;
+      font-weight: 500;
+      transition: opacity 0.3s ease;
+    }
+
+    .kpm-nav a:hover {
+      opacity: 0.9;
+      text-decoration: underline;
     }
 
     .main-container {
       max-width: 1200px;
-      margin: 30px auto;
-      padding: 0 20px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
     }
 
     .content-box {
       background: white;
-      border-radius: 5px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      padding: 30px;
-      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
     }
 
     h1 {
       color: var(--kpm-blue);
-      border-bottom: 2px solid var(--kpm-red);
-      padding-bottom: 10px;
-      margin-bottom: 25px;
+      border-bottom: 3px solid var(--kpm-red);
+      padding-bottom: 0.8rem;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
     }
 
     .breadcrumb {
       color: var(--kpm-grey);
-      font-size: 0.9em;
-      margin-bottom: 20px;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      padding: 0.5rem 0;
+    }
+
+    .breadcrumb a {
+      color: var(--kpm-blue);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
     }
 
     .kpm-footer {
       background: var(--kpm-blue);
       color: white;
-      padding: 30px;
-      margin-top: 50px;
-      font-size: 0.9em;
+      padding: 2rem 0;
+      margin-top: 3rem;
+      font-size: 0.9rem;
     }
 
     .footer-content {
@@ -98,35 +121,71 @@
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
+      padding: 0 1.5rem;
     }
 
     .form-disclaimer {
       background: #fff9e6;
-      border-left: 4px solid #ffcc00;
-      padding: 15px;
-      margin: 20px 0;
-      font-size: 0.9em;
+      border-left: 4px solid var(--kpm-yellow);
+      padding: 1.2rem;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+      border-radius: 4px;
+    }
+
+    .form-container {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      height: 600px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     @media (max-width: 768px) {
-      .footer-content {
-        flex-direction: column;
+      .logo img {
+        width: 240px;
       }
 
-      .logo img {
-        width: 200px;
+      .kpm-title h2 {
+        font-size: 1.4rem;
+      }
+
+      .kpm-nav {
+        padding: 0.8rem 1rem;
+        text-align: center;
+      }
+
+      .kpm-nav a {
+        margin: 0 1rem;
+        font-size: 0.9rem;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .form-container {
+        height: 500px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="logo">
-    <img src="images/logo-korporat-kpm-bm.jpg" alt="Logo KPM">
-  </div>
-  <div class="kpm-title">
-    <h2>KEMENTERIAN PENDIDIKAN MALAYSIA</h2>
-    <p>Pendidikan Berkualiti, Insan Terdidik, Negara Sejahtera</p>
-  </div>
+  <header>
+    <div class="logo">
+      <img src="images/logo-korporat-kpm-bm.jpg" alt="Logo KPM">
+    </div>
+    <div class="kpm-title">
+      <h2>KEMENTERIAN PENDIDIKAN MALAYSIA</h2>
+      <p>Pendidikan Berkualiti, Insan Terdidik, Negara Sejahtera</p>
+    </div>
+  </header>
 
   <nav class="kpm-nav">
     <a href="https://www.moe.gov.my">Laman Utama</a>
@@ -144,20 +203,16 @@
       <h1>PENDAFTARAN STPM 2025</h1>
       
       <div class="form-disclaimer">
-        <strong>Perhatian:</strong> Borang ini hanya untuk calon sekolah kerajaan. Sila isi semua maklumat dengan lengkap dan tepat. Data yang dikemukakan adalah tertakluk kepada pengesahan pihak KPM.
+        <strong>PERHATIAN:</strong> Borang ini hanya untuk calon sekolah kerajaan. Sila isi semua maklumat dengan lengkap dan tepat. Data yang dikemukakan adalah tertakluk kepada pengesahan pihak KPM.
       </div>
 
-      <iframe 
-        src="https://docs.google.com/forms/d/e/1FAIpQLSfsKg4aLxMLNNHR3RbFTvn7f8XRDL3f-OSq46jh9jTY5oz-NA/viewform?embedded=true" 
-        width="100%" 
-        height="2400" 
-        frameborder="0" 
-        marginheight="0" 
-        marginwidth="0" 
-        style="border: none; border-radius: 5px;"
-        title="Borang Pendaftaran STPM 2025">
-        Memuatkan…
-      </iframe>
+      <div class="form-container">
+        <iframe 
+          src="https://docs.google.com/forms/d/e/1FAIpQLSfsKg4aLxMLNNHR3RbFTvn7f8XRDL3f-OSq46jh9jTY5oz-NA/viewform?embedded=true" 
+          title="Borang Pendaftaran STPM 2025">
+          Memuatkan…
+        </iframe>
+      </div>
     </div>
   </div>
 
@@ -177,7 +232,7 @@
         <a href="#" style="color: white;">Notis Hak Cipta</a></p>
       </div>
     </div>
-    <div style="text-align: center; margin-top: 20px;">
+    <div style="text-align: center; margin-top: 2rem;">
       © 2024 Hak Cipta Terpelihara Kementerian Pendidikan Malaysia
     </div>
   </footer>
