@@ -17,22 +17,31 @@
       background: #f5f5f5;
     }
 
-    .kpm-header {
+    .logo {
+      text-align: center;
+      padding: 30px 0 10px;
       background: white;
-      padding: 15px 30px;
-      border-bottom: 3px solid var(--kpm-blue);
-      display: flex;
-      align-items: center;
     }
 
-    .kpm-logo {
-      width: 300px;
+    .logo img {
+      width: 200px;
     }
 
     .kpm-title {
-      margin-left: 30px;
-      border-left: 2px solid var(--kpm-grey);
-      padding-left: 30px;
+      text-align: center;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--kpm-blue);
+      background: white;
+    }
+
+    .kpm-title h2 {
+      margin: 10px 0 5px;
+      color: var(--kpm-blue);
+    }
+
+    .kpm-title p {
+      margin: 0;
+      color: var(--kpm-grey);
     }
 
     .kpm-nav {
@@ -98,18 +107,6 @@
     }
 
     @media (max-width: 768px) {
-      .kpm-header {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      .kpm-title {
-        border-left: none;
-        margin-left: 0;
-        padding-left: 0;
-        margin-top: 15px;
-      }
-      
       .footer-content {
         flex-direction: column;
       }
@@ -117,13 +114,13 @@
   </style>
 </head>
 <body>
-  <header class="kpm-header">
-    <img src="https://www.moe.gov.my/images/logo/logo-korporat-kpm-bm.jpg" alt="Logo KPM" class="kpm-logo">
-    <div class="kpm-title">
-      <h2>KEMENTERIAN PENDIDIKAN MALAYSIA</h2>
-      <p>Pendidikan Berkualiti, Insan Terdidik, Negara Sejahtera</p>
-    </div>
-  </header>
+  <div class="logo">
+    <img src="images/logo-korporat-kpm-bm.jpg" alt="Logo KPM">
+  </div>
+  <div class="kpm-title">
+    <h2>KEMENTERIAN PENDIDIKAN MALAYSIA</h2>
+    <p>Pendidikan Berkualiti, Insan Terdidik, Negara Sejahtera</p>
+  </div>
 
   <nav class="kpm-nav">
     <a href="https://www.moe.gov.my">Laman Utama</a>
