@@ -26,7 +26,12 @@
     }
 
     .logo img {
-      width: 120px;
+      min-width: 200px;
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
     }
 
     h2 {
@@ -65,12 +70,38 @@
       color: green;
       text-align: center;
     }
+
+    /* Media Query untuk skrin kecil */
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px 15px;
+      }
+
+      .logo img {
+        min-width: unset;
+        max-width: 250px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      input, select {
+        font-size: 14px;
+        padding: 8px;
+      }
+
+      button {
+        font-size: 15px;
+        padding: 10px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="logo">
-      <img src="images/logo-korporat-kpm-bm.jpg" alt="Logo KPM" width="120">
+      <img src="images/logo-korporat-kpm-bm.jpg" alt="Logo KPM">
     </div>
     <h2>Pendaftaran STPM 2025</h2>
     <form id="stpmForm">
