@@ -8,32 +8,36 @@
     :root {
       --kpm-blue: #006699;
       --kpm-red: #CC0000;
-      --kpm-grey: #444444;
+      --kpm-grey: #444;
       --kpm-yellow: #ffcc00;
+      --kpm-light-blue: #e6f3f9;
     }
 
     body {
       font-family: "Arial", sans-serif;
       margin: 0;
       background: #f8f9fa;
+      line-height: 1.6;
     }
 
+    /* Header Styles */
     .logo {
       text-align: center;
-      padding: 1.5rem 0;
+      padding: 1rem 0;
       background: white;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: relative;
     }
 
     .logo img {
-      width: 320px;
+      width: min(320px, 90%);
       height: auto;
-      transition: width 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
     .kpm-title {
       text-align: center;
-      padding: 1rem 0;
+      padding: 1.2rem 0;
       background: linear-gradient(to right, var(--kpm-blue), #004466);
       color: white;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -41,35 +45,61 @@
 
     .kpm-title h2 {
       margin: 0;
-      font-size: 1.8rem;
-      letter-spacing: 1px;
+      font-size: clamp(1.4rem, 4vw, 1.8rem);
+      letter-spacing: 0.5px;
     }
 
     .kpm-title p {
       margin: 0.5rem 0 0;
-      font-size: 0.95rem;
-      opacity: 0.9;
+      font-size: clamp(0.85rem, 3vw, 0.95rem);
+      opacity: 0.95;
     }
 
+    /* Navigation */
     .kpm-nav {
       background: var(--kpm-blue);
       padding: 0.8rem 2rem;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
     .kpm-nav a {
       color: white;
       text-decoration: none;
-      margin-right: 2rem;
       font-weight: 500;
-      transition: opacity 0.3s ease;
+      transition: all 0.3s ease;
+      padding: 0.3rem 0;
+      position: relative;
     }
 
     .kpm-nav a:hover {
       opacity: 0.9;
-      text-decoration: underline;
+      transform: translateY(-1px);
     }
 
+    .kpm-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: white;
+      transition: width 0.3s ease;
+    }
+
+    .kpm-nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Main Content */
     .main-container {
       max-width: 1200px;
       margin: 2rem auto;
@@ -78,8 +108,8 @@
 
     .content-box {
       background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       padding: 2rem;
       margin-bottom: 2rem;
     }
@@ -89,55 +119,48 @@
       border-bottom: 3px solid var(--kpm-red);
       padding-bottom: 0.8rem;
       margin-bottom: 2rem;
-      font-size: 1.8rem;
+      font-size: clamp(1.5rem, 5vw, 2rem);
     }
 
+    /* Breadcrumb */
     .breadcrumb {
       color: var(--kpm-grey);
       font-size: 0.9rem;
       margin-bottom: 1.5rem;
       padding: 0.5rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
     .breadcrumb a {
       color: var(--kpm-blue);
       text-decoration: none;
+      transition: opacity 0.3s ease;
     }
 
     .breadcrumb a:hover {
+      opacity: 0.8;
       text-decoration: underline;
     }
 
-    .kpm-footer {
-      background: var(--kpm-blue);
-      color: white;
-      padding: 2rem 0;
-      margin-top: 3rem;
-      font-size: 0.9rem;
-    }
-
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      padding: 0 1.5rem;
-    }
-
+    /* Form Container */
     .form-disclaimer {
-      background: #fff9e6;
-      border-left: 4px solid var(--kpm-yellow);
+      background: var(--kpm-light-blue);
+      border-left: 4px solid var(--kpm-blue);
       padding: 1.2rem;
       margin: 1.5rem 0;
       font-size: 0.95rem;
-      border-radius: 4px;
+      border-radius: 6px;
     }
 
     .form-container {
       border: 1px solid #ddd;
-      border-radius: 8px;
+      border-radius: 10px;
       overflow: hidden;
-      height: 600px;
+      height: 650px;
+      position: relative;
+      background: white;
     }
 
     iframe {
@@ -146,32 +169,95 @@
       border: none;
     }
 
+    /* Footer */
+    .kpm-footer {
+      background: var(--kpm-blue);
+      color: white;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 0 1.5rem;
+    }
+
+    .footer-section h4 {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-section p {
+      margin: 0.5rem 0;
+    }
+
+    .footer-section a {
+      color: white;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      opacity: 0.9;
+    }
+
+    /* Responsive Design */
     @media (max-width: 768px) {
-      .logo img {
-        width: 240px;
-      }
-
-      .kpm-title h2 {
-        font-size: 1.4rem;
-      }
-
       .kpm-nav {
         padding: 0.8rem 1rem;
-        text-align: center;
       }
 
-      .kpm-nav a {
-        margin: 0 1rem;
-        font-size: 0.9rem;
+      .nav-container {
+        gap: 1rem;
+        justify-content: center;
       }
 
-      .footer-content {
-        flex-direction: column;
-        gap: 1.5rem;
+      .logo img {
+        width: min(280px, 80%);
+      }
+
+      .content-box {
+        padding: 1.5rem;
       }
 
       .form-container {
         height: 500px;
+        border-radius: 8px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .footer-section {
+        text-align: center;
+      }
+
+      .breadcrumb {
+        gap: 0.3rem;
+      }
+
+      .breadcrumb > span {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .kpm-nav a {
+        font-size: 0.85rem;
+      }
+
+      .form-container {
+        height: 400px;
+      }
+
+      h1 {
+        font-size: 1.4rem;
       }
     }
   </style>
@@ -188,15 +274,21 @@
   </header>
 
   <nav class="kpm-nav">
-    <a href="https://www.moe.gov.my">Laman Utama</a>
-    <a href="#">Maklumat Korporat</a>
-    <a href="#">Pendidikan Tinggi</a>
-    <a href="#">Hubungi Kami</a>
+    <div class="nav-container">
+      <a href="https://www.moe.gov.my">Laman Utama</a>
+      <a href="#">Maklumat Korporat</a>
+      <a href="#">Pendidikan Tinggi</a>
+      <a href="#">Hubungi Kami</a>
+    </div>
   </nav>
 
   <div class="main-container">
     <div class="breadcrumb">
-      <a href="#">Laman Utama</a> > <a href="#">Pendidikan Tinggi</a> > Pendaftaran STPM
+      <a href="#">Laman Utama</a>
+      <span>></span>
+      <a href="#">Pendidikan Tinggi</a>
+      <span>></span>
+      <span>Pendaftaran STPM</span>
     </div>
 
     <div class="content-box">
@@ -218,21 +310,21 @@
 
   <footer class="kpm-footer">
     <div class="footer-content">
-      <div>
+      <div class="footer-section">
         <h4>HUBUNGI KAMI</h4>
         <p>Kementerian Pendidikan Malaysia<br>
         No. 2, Menara 2, Jalan P5/6, Presint 5<br>
         62200 Putrajaya<br>
         Tel: 03-8000 8000</p>
       </div>
-      <div>
+      <div class="footer-section">
         <h4>PAUTAN BERKAITAN</h4>
-        <p><a href="#" style="color: white;">Dasar Privasi</a><br>
-        <a href="#" style="color: white;">Dasar Keselamatan</a><br>
-        <a href="#" style="color: white;">Notis Hak Cipta</a></p>
+        <p><a href="#">Dasar Privasi</a></p>
+        <p><a href="#">Dasar Keselamatan</a></p>
+        <p><a href="#">Notis Hak Cipta</a></p>
       </div>
     </div>
-    <div style="text-align: center; margin-top: 2rem;">
+    <div style="text-align: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2);">
       © 2024 Hak Cipta Terpelihara Kementerian Pendidikan Malaysia
     </div>
   </footer>
